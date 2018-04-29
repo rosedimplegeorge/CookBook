@@ -1,0 +1,27 @@
+{
+  "name": "CookBook",
+  "version": "1.0.0",
+  "description": "CookBook- MERN Stack Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rosedimplegeorge/CookBook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rosedimplegeorge/CookBook/issues"
+  },
+  "homepage": "https://github.com/rosedimplegeorge/CookBook#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16",
+    "npm": "^6.0.0"
+  }
+}
