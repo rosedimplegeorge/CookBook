@@ -17,7 +17,7 @@ connection.on('error', (err) => {
 
 app.use(bodyParser.json());
 app.get('/', (req,res) => {
-  res.send('Hello world!')
+  res.send('Hello Cook Book !')
 })
 
 const PORT = process.env.PORT || 3001;
