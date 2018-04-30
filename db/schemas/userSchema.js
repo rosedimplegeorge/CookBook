@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
+const recipeSchema = require('./recipeSchema')
 
 const userSchema = new Schema ({
     userName: String,
-    userType: String,
-    password: String
+    recipes: [recipeSchema]
 })
 
 module.exports = userSchema

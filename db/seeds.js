@@ -1,7 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 
-const Recipe = require('../db/models/recipeModel')
+const User = require('../db/models/userModel')
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -14,45 +14,43 @@ db.on('error',(error) => {
     console.log(error)
 })
 
-
-const brownie = new Recipe({
-    title: 'Brownie',
-    type: 'dessert',
-    createdBy: {
-        userName: 'Rose',
-        userType: 'Admin',
-        password: 'admin'
-    },
-    ingredients:[{
-        ingredientName: 'cocopowder',
-        quantity: 2,
-        unit: 'tbs'
-    },
-    {
+const rose = new User({
+    userName: 'Rose',
+    recipes: {
+        title: 'Brownie',
+        type: 'dessert',
+        ingredients:[{
+            ingredientName: 'cocopowder',
+            quantity: 2,
+            unit: 'tbs'
+         },
+        {
         ingredientName: 'butter',
         quantity: 3,
         unit: 'tbs'
-    },
-    {
+        },
+        {
         ingredientName: 'sugar',
         quantity: 4,
         unit: 'tbs'
-    }],
-    reviews:[{
+        }],
+        reviews:[{
         reviewerName: 'Ethan',
         comment: 'Yummy'
-    },
-    {
+        },
+        {
         reviewerName: 'Bejoy',
         comment: 'Good'
-    }]
+        }]
+    }
 })
 
 
-Recipe.remove().then(() => {
-    return Recipe.insertMany([brownie])
+
+User.remove().then(() => {
+    return User.insertMany([rose])
 }).then(() => {
-    console.log('Saved Recipe Successfully')
+    console.log('Saved USER Successfully')
     db.close()
 }).catch((error) => {
     console.log(error)
