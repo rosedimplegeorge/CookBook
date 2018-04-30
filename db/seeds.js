@@ -50,7 +50,7 @@ const brownie = new Recipe({
 
 
 Recipe.remove().then(() => {
-    return Recipe([brownie])
+    return Recipe.insertMany([brownie])
 }).then(() => {
     console.log('Saved Recipe Successfully')
     db.close()

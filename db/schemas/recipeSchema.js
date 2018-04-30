@@ -7,9 +7,9 @@ const reviewSchema = require('./reviewSchema')
 const recipeSchema = new Schema ({
     title: String,
     type: String,
-    createdBy: {userSchema},
-    ingredients:[{ingredientSchema}],
-    reviews:[{reviewSchema}]
+    createdBy: userSchema,
+    ingredients:[ingredientSchema],
+    reviews:[reviewSchema]
 })
 
 module.exports = recipeSchema
