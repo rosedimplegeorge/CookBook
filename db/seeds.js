@@ -45,10 +45,42 @@ const rose = new User({
     }
 })
 
+const paul = new User({
+    userName: 'Paul',
+    recipes: {
+        title: 'Spring Roll',
+        type: 'apetizer',
+        ingredients:[{
+            ingredientName: 'vegetables',
+            quantity: 2,
+            unit: 'lbs'
+         },
+        {
+        ingredientName: 'oil',
+        quantity: 100,
+        unit: 'ml'
+        },
+        {
+        ingredientName: 'Roll up sheets',
+        quantity: 4,
+        unit: 'gm'
+        }],
+        reviews:[{
+        reviewerName: 'Joanna',
+        comment: 'Yummy'
+        },
+        {
+        reviewerName: 'Natania',
+        comment: 'Good'
+        }]
+    }
+})
+
+
 
 
 User.remove().then(() => {
-    return User.insertMany([rose])
+    return User.insertMany([rose,paul])
 }).then(() => {
     console.log('Saved USER Successfully')
     db.close()

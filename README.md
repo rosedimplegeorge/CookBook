@@ -18,9 +18,8 @@ This application I created to manage the recipes over time . When I conceived th
 
 ## ERD
 
+[ERD](https://i.imgur.com/bPt1SG3.png)
 
-
-[]()
 
 ## Technologies/Frameworks used:
 
