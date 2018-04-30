@@ -14,7 +14,7 @@ class App extends Component {
                   This App will help you to come up with some good options on a LAZY Saturday morning ! 
                 </p>
                 <p>
-                  <Button bsStyle="primary">Sign In</Button>
+                  <Button bsStyle="primary">Users</Button>
                 </p>
             </Jumbotron >
             <Image src="https://i.imgur.com/Km3kcgU.jpg" responsive />
