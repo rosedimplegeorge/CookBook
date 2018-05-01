@@ -1,8 +1,12 @@
 require('dotenv').config()
+
+const User = require('../db/models/User')
+const Recipe = require('../db/models/Recipe')
+const Ingredient = require('../db/models/Ingredient')
+const Review = require('../db/models/Review')
 const mongoose = require('mongoose')
 
-const User = require('../db/models/userModel')
-
+mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection
@@ -14,77 +18,42 @@ db.on('error',(error) => {
     console.log(error)
 })
 
-const rose = new User({
-    userName: 'Rose',
-    recipes: {
-        title: 'Brownie',
-        type: 'dessert',
-        ingredients:[{
-            ingredientName: 'cocopowder',
-            quantity: 2,
-            unit: 'tbs'
-         },
-        {
-        ingredientName: 'butter',
-        quantity: 3,
-        unit: 'tbs'
-        },
-        {
-        ingredientName: 'sugar',
-        quantity: 4,
-        unit: 'tbs'
-        }],
-        reviews:[{
-        reviewerName: 'Ethan',
-        comment: 'Yummy'
-        },
-        {
-        reviewerName: 'Bejoy',
-        comment: 'Good'
-        }]
-    }
-})
-
-const paul = new User({
-    userName: 'Paul',
-    recipes: {
-        title: 'Spring Roll',
-        type: 'apetizer',
-        ingredients:[{
-            ingredientName: 'vegetables',
-            quantity: 2,
-            unit: 'lbs'
-         },
-        {
-        ingredientName: 'oil',
-        quantity: 100,
-        unit: 'ml'
-        },
-        {
-        ingredientName: 'Roll up sheets',
-        quantity: 4,
-        unit: 'gm'
-        }],
-        reviews:[{
-        reviewerName: 'Joanna',
-        comment: 'Yummy'
-        },
-        {
-        reviewerName: 'Natania',
-        comment: 'Good'
-        }]
-    }
-})
-
-
-
-
 User.remove().then(() => {
-    return User.insertMany([rose,paul])
-}).then(() => {
-    console.log('Saved USER Successfully')
-    db.close()
-}).catch((error) => {
+
+        const rose = new User({
+            userName: 'Rose'
+        })
+        const brownie = new Recipe({
+            title: 'Brownie',
+            type: 'Dessert'
+        })
+        const coco = new Ingredient({
+            ingredientName: 'Cocopowder',
+            quantity: 20,
+            unit: 'ml'
+        })
+        const comment = new Review({
+            reviewerName: 'Ethan',
+            comment: 'Yummy'
+        })
+   
+
+        brownie.ingredients.push(coco)
+        brownie.reviews.push(comment)
+        rose.recipes.push(brownie)
+
+        return rose.save()
+}).catch((error) =>{
+    console.log('Error Seeding Data')
     console.log(error)
-    db.close()
+}).then(()=>{
+    mongoose.connection.close()
+    console.log('Finish Seeding Data - Disconnecting from DB')
 })
+
+
+
+
+
+
+

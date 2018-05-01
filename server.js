@@ -23,6 +23,9 @@ app.get('/', (req,res) => {
     res.sendFile(__dirname + '/client/build/index.html')
   })
 
+const usersController = require('./controllers/usersController')
+app.use('/api/users', usersController)
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log('================================')
