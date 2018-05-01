@@ -1,10 +1,10 @@
 const express = require('express')
-const  UserModel  = require('../db/models/userModel')
+const  User = require('../db/models/User')
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  console.log("Hit Get All Users route", UserModel)
-  UserModel.User.find()
+  console.log("Hit Get All Users route", User)
+  User.find()
     .then(users => {
       console.log("Found users", users)
       res.json(users)
