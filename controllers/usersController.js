@@ -19,4 +19,13 @@ router.post('/', (req, res) => {
   }).catch(console.log)
 })
 
+router.delete('/:id', (req, res) => {
+  User.findByIdAndRemove(req.params.id).then(() => {
+    console.log('The User to be Deleted :', req.params.id)
+    res.sendStatus(200)
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+})
 module.exports = router;

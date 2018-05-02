@@ -39,7 +39,7 @@ class UsersPage extends Component{
                         })
                     }
                     <p>
-                        <Link to='/'><Button bsStyle="info">Home</Button></Link>
+                        
                         <form onSubmit={this.callCreateUser}>
                         <div>
                         <label htmlFor="userName">User Name</label>
@@ -47,7 +47,8 @@ class UsersPage extends Component{
                         </div>
                         <input type="submit" value="Add New User" />
                         </form>
-                        <Button bsStyle="success">Add New User</Button>
+                        <Link to='/'><Button bsStyle="info">Home</Button></Link>
+                        {/* <Button bsStyle="success">Add New User</Button> */}
                     </p>
                 </Jumbotron>
             </div>

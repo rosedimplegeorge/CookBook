@@ -7,10 +7,7 @@ class SpecificUserPage extends Component{
             <div>
                 <Jumbotron>
                 <h1>Specific user</h1>
-                {this.props.users.map(user => {
-                        return (`${user.userName}
-                                ${user.recipes}`)
-                })}
+                
                 </Jumbotron>
             </div>
         )
