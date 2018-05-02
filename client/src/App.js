@@ -27,19 +27,22 @@ getAllUsers = () => {
       })
 }
 
-createUser = () => {
-    axios.post('/api/users', {user: this.state.user})
-    .then((res) => {
-      const users = [this.state.users]
-      users.push(res.data)
-      this.setState({users})
-    })
+createUser = (newUser) => {
+  console.log('Create user is Called')
+  axios.post('/api/users', {newUser})
+  .then((res) => {
+    console.log('Res from Server', res.data)
+    const users = [this.state.users]
+    users.push(res.data)
+    this.setState({users})
+  })
 }
 
   render() {
 
     const UsersList = props => {
-      return<UsersPage users={this.state.users} {...props} />
+      console.log('Test')
+      return<UsersPage users={this.state.users} createUser={this.createUser} {...props} />
     }
 
     const SpecificUser = props => {
