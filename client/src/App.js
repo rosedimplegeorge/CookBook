@@ -38,11 +38,13 @@ createUser = (newUser) => {
   })
 }
 
+
+
   render() {
 
     const UsersList = props => {
       console.log('Test')
-      return<UsersPage users={this.state.users} createUser={this.createUser} {...props} />
+      return<UsersPage users={this.state.users} createUser={this.createUser} deleteUser={this.deleteUser} {...props} />
     }
 
     const SpecificUser = props => {
