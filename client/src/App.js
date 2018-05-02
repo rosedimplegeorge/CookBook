@@ -27,6 +27,15 @@ getAllUsers = () => {
       })
 }
 
+createUser = () => {
+    axios.post('/api/users', {user: this.state.user})
+    .then((res) => {
+      const users = [this.state.users]
+      users.push(res.data)
+      this.setState({users})
+    })
+}
+
   render() {
 
     const UsersList = props => {

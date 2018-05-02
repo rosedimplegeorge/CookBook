@@ -12,4 +12,12 @@ router.get('/', (req, res) => {
     .catch((err) => console.log(err))
 })
 
+router.post('/', (req, res) => {
+  console.log('Hitting The Post route', req.body)
+  const newUser = new User(req.body)
+  newUser.save().then((user) => {
+    res.json(user)
+  }).catch(console.log)
+})
+
 module.exports = router;
