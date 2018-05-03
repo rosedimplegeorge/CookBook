@@ -28,4 +28,27 @@ router.delete('/:id', (req, res) => {
     console.log(error)
   })
 })
+
+//router.patch('/:userId', (req, res) => {
+  //console.log('Patch is getting Called',req.body)
+  // User.findByIdAndUpdate(req.params.userId, req.body.userName)
+  // .then((user) => {
+  //   res.json(user)
+  //   console.log('The user to get Updated: ', user)
+  // }).catch((error) => {
+  //   console.log(error)
+  // })
+  router.put("/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    console.log(userId);
+    const updatedUser = req.body;
+    const savedUser = await User.findByIdAndUpdate(userId, updatedUser);
+    res.json(savedUser);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;
