@@ -8,6 +8,12 @@ class SpecificUserPage extends Component{
         user: {}
     }
 
+    handleChange = event => {
+        const user = { ...this.state.user };
+        user[event.target.name] = event.target.value;
+        this.setState({ user });
+      };
+
     componentDidMount = () => {
         this.getSpecificUser()
     }
@@ -22,14 +28,39 @@ class SpecificUserPage extends Component{
         })
     }
 
+    editUser = event  => {
+        event.preventDefault()
+        const userId = this.props.user._id
+        const payload = this.state.user
+        console.log('Edit User is Called')
+        axios.put(`/api/users/${userId}`, payload)
+        .then(res => {
+            this.setState({user: res.data})
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
     render(){
         return(
             <div>
                 <Jumbotron>
                 <h1>{this.state.user.userName}</h1>
-                <button>Update</button>
+                <form onSubmit={this.editUser}>
+                <div>
+                    <label htmlFor="name">Name: </label>
+                    <input
+                    onChange={this.handleChange}
+                    type="text"
+                    name="name"
+                    value={this.state.user.userName}
+                    placeholder={this.props.userName}
+                    />
+                </div>
+                <input type="submit" value="Update User" />
+                </form>
                 </Jumbotron>
-            </div>
+      </div>
         )
     }
 }
