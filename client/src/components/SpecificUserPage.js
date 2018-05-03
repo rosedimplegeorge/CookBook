@@ -12,7 +12,6 @@ class SpecificUserPage extends Component{
         this.getSpecificUser()
     }
 
-
     getSpecificUser = () => {
         const userId = this.props.match.params.userId
         console.log('User ID: ', userId)
@@ -23,15 +22,12 @@ class SpecificUserPage extends Component{
         })
     }
 
-
-
     render(){
         return(
             <div>
                 <Jumbotron>
                 <h1>{this.state.user.userName}</h1>
-                <h2>{this.state.recipes.title}</h2>
-                
+                <button>Update</button>
                 </Jumbotron>
             </div>
         )

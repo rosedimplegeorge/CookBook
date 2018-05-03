@@ -47,9 +47,6 @@ class UsersPage extends Component {
                                     onClick={() => { this.deleteThisUser(user._id) }}>
                                     Delete User
                                 </button>
-                                <button>
-                                    Edit User
-                                </button>
                             </div>
                         )
                     })
