@@ -27,6 +27,14 @@ getAllUsers = () => {
       })
 }
 
+deleteUser = (userId) => {
+  axios.delete(`/api/users/${userId}`)
+  .then((response) => {
+    console.log(response)
+    this.getAllUsers()
+  })
+}
+
 createUser = (newUser) => {
   console.log('Create user is Called')
   axios.post('/api/users', {newUser})
@@ -38,13 +46,14 @@ createUser = (newUser) => {
   })
 }
 
-
-
   render() {
 
     const UsersList = props => {
       console.log('Test')
-      return<UsersPage users={this.state.users} createUser={this.createUser} deleteUser={this.deleteUser} {...props} />
+      return<UsersPage users={this.state.users} 
+                       createUser={this.createUser} 
+                       deleteUser={this.deleteUser} 
+                       editUser={this.editUser}{...props} />
     }
 
     const SpecificUser = props => {
@@ -57,10 +66,9 @@ createUser = (newUser) => {
         <Switch>
           <Route exact path="/" component={AboutPage}/>
           <Route exact path='/users' render={UsersList}/>
-          <Route exact path='/users/:id' render={SpecificUser}/>
+          <Route exact path='/users/:userId' render={SpecificUser}/>
         </Switch>
-      </Router>
-    );
+      </Router>    );
   }
 }
 

@@ -28,12 +28,10 @@ class UsersPage extends Component {
         this.props.createUser(newUser)
     }
 
-    deleteUser = (userId) => {
-        axios.delete(`/api/users/${userId}`)
-        .then((response) => {
-          console.log(response)
-        })
+    deleteThisUser = (userId) => {
+        this.props.deleteUser(userId)
       }
+
     render() {
 
         return (
@@ -46,16 +44,17 @@ class UsersPage extends Component {
                                 <Link to={`/users/${user._id}`}><li>{user.userName}</li></Link>
                                 {/* <input type="submit" value="Delete User" /> */}
                                 <button
-                                    onClick={() => { this.deleteUser(user._id) }}>
+                                    onClick={() => { this.deleteThisUser(user._id) }}>
                                     Delete User
+                                </button>
+                                <button>
+                                    Edit User
                                 </button>
                             </div>
                         )
-
                     })
                     }
                     <p>
-
                         <form onSubmit={this.callCreateUser}>
                             <div>
                                 <label htmlFor="userName">User Name</label>

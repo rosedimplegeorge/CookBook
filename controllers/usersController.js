@@ -19,6 +19,15 @@ router.post('/', (req, res) => {
   }).catch(console.log)
 })
 
+router.get('/:userId', (req, res) => {
+  console.log('From specific user get: ', req.params.userId)
+  User.findById(req.params.userId)
+  .then((user) => {
+    console.log('From DB: ', user)
+    res.json(user)
+  })
+})
+
 router.delete('/:id', (req, res) => {
   User.findByIdAndRemove(req.params.id).then(() => {
     console.log('The User to be Deleted :', req.params.id)
@@ -29,19 +38,9 @@ router.delete('/:id', (req, res) => {
   })
 })
 
-//router.patch('/:userId', (req, res) => {
-  //console.log('Patch is getting Called',req.body)
-  // User.findByIdAndUpdate(req.params.userId, req.body.userName)
-  // .then((user) => {
-  //   res.json(user)
-  //   console.log('The user to get Updated: ', user)
-  // }).catch((error) => {
-  //   console.log(error)
-  // })
   router.put("/:id", async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(userId);
     const updatedUser = req.body;
     const savedUser = await User.findByIdAndUpdate(userId, updatedUser);
     res.json(savedUser);
