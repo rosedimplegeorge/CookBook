@@ -2,7 +2,7 @@
 
 CookBook- MERN Stack Application
 
-This application I created to manage the recipes over time . When I conceived this idea for my third Project (using MERN Stack), Considered myself as a user in mind and have the ability to Add, Edit,Delete and Show the Recipes. Also, Add the Ingradients and Comments/Feedbacks .
+This application I created to manage the recipes over time . When I conceived this idea for my third Project, Considered myself as a user in mind and have the ability to Add, Edit,Delete and Show the Recipes. Also, Add the Ingradients and Comments/Feedbacks .
 
 ## Link to site
 
@@ -14,7 +14,7 @@ This application I created to manage the recipes over time . When I conceived th
 
 ## Wire Frame 
 
-[Wire frame](https://balsamiq.cloud/ss1jkaq/puq0cuo/r2278)
+[Wire frame](https://i.imgur.com/cnRmB0I.png)
 
 ## ERD
 
@@ -45,6 +45,9 @@ Other:
 ## Resources
 
 ```
+react-bootstrap.github.io
 react docs
+
+
 
 ```
