@@ -2,7 +2,7 @@
 
 CookBook- MERN Stack Application
 
-This application I created to manage the recipes over time . When I conceived this idea for my third Project, Considered myself as a user in mind and have the ability to Add, Edit,Delete and Show the Recipes. Also, Add the Ingradients and Comments/Feedbacks .
+This Application is created for people who loves to cook, and keep their recipes with them with the ingredients and the reviews they got. Personlize your Favourites by keeping the reviews that you got !                    
 
 ## Link to site
 
@@ -48,6 +48,10 @@ Other:
 react-bootstrap.github.io
 react docs
 
-
-
 ```
+
+## Future Scope 
+
+User Authentication
+
+
