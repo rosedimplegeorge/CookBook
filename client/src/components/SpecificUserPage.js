@@ -8,13 +8,13 @@ import {Image} from 'react-bootstrap';
 class SpecificUserPage extends Component{
 
     state = {
-        user: {}
+        user: {},
     }
 
     handleChange = (event) => {
         const user = { ...this.state.user };
         user[event.target.name] = event.target.value;
-        this.setState({ user: user });
+        this.setState({ user });
       };
 
     componentDidMount = () => {
@@ -33,12 +33,15 @@ class SpecificUserPage extends Component{
 
     editUser = (event)  => {
         event.preventDefault()
-        const userId = this.props.user._id
+        const userId = this.state.user._id
         const payload = this.state.user
         console.log('Edit User is Called')
         axios.put(`/api/users/${userId}`, payload)
-        .then(res => {
-            this.setState({user: res.data})
+        .then((res) => {
+            console.log('edit user return: ', res.data)
+            const user = res.data
+            this.setState({user})
+            // this.getSpecificUser()
         })
         .catch(error => {
             console.log(error)
@@ -55,9 +58,8 @@ class SpecificUserPage extends Component{
                     <input
                     onChange={this.handleChange}
                     type="text"
-                    name="name"
+                    name="userName"
                     value={this.state.user.userName}
-                    placeholder={this.props.userName}
                     />
                 </div>
                 <input type="submit" value="Update User" />
