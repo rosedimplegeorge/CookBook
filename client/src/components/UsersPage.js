@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron'
 import axios from 'axios'
+import {Image} from 'react-bootstrap';
 
 class UsersPage extends Component {
 
@@ -63,6 +64,7 @@ class UsersPage extends Component {
                         {/* <Button bsStyle="success">Add New User</Button> */}
                     </p>
                 </Jumbotron>
+                <Image src="https://i.imgur.com/Km3kcgU.jpg" responsive />;
             </div>
         )
     }

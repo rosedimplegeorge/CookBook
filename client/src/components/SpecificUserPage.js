@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Jumbotron from 'react-bootstrap/lib/Jumbotron'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 
 class SpecificUserPage extends Component{
 
@@ -8,10 +11,10 @@ class SpecificUserPage extends Component{
         user: {}
     }
 
-    handleChange = event => {
+    handleChange = (event) => {
         const user = { ...this.state.user };
         user[event.target.name] = event.target.value;
-        this.setState({ user });
+        this.setState({ user: user });
       };
 
     componentDidMount = () => {
@@ -28,7 +31,7 @@ class SpecificUserPage extends Component{
         })
     }
 
-    editUser = event  => {
+    editUser = (event)  => {
         event.preventDefault()
         const userId = this.props.user._id
         const payload = this.state.user
@@ -59,7 +62,9 @@ class SpecificUserPage extends Component{
                 </div>
                 <input type="submit" value="Update User" />
                 </form>
+                <Link to='/'><Button bsStyle="info">Home</Button></Link>
                 </Jumbotron>
+                <Image src="https://i.imgur.com/Km3kcgU.jpg" responsive />;
       </div>
         )
     }
