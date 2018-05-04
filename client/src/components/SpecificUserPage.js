@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import {Image} from 'react-bootstrap';
+import AppTitle from './styledComponents/AppTitle';
 
 class SpecificUserPage extends Component{
 
@@ -51,6 +52,7 @@ class SpecificUserPage extends Component{
         return(
             <div>
                 <Jumbotron>
+                    <AppTitle>
                 <h1>{this.state.user.userName}</h1>
                 <form onSubmit={this.editUser}>
                 <div>
@@ -65,8 +67,9 @@ class SpecificUserPage extends Component{
                 <input type="submit" value="Update User" />
                 </form>
                 <Link to='/'><Button bsStyle="info">Home</Button></Link>
+                </AppTitle>
                 </Jumbotron>
-                <Image src="https://i.imgur.com/Km3kcgU.jpg" responsive />;
+                <Image src="https://i.imgur.com/Km3kcgU.jpg" responsive />
       </div>
         )
     }

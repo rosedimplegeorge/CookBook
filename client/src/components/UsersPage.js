@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/lib/Jumbotron'
-import axios from 'axios'
 import {Image} from 'react-bootstrap';
+import AppTitle from './styledComponents/AppTitle';
 
 class UsersPage extends Component {
 
@@ -38,7 +38,9 @@ class UsersPage extends Component {
         return (
             <div>
                 <Jumbotron>
+                    <AppTitle>
                     <h1>Users Page</h1>
+                    
                     {this.props.users.map(user => {
                         return (
                             <div>
@@ -63,6 +65,7 @@ class UsersPage extends Component {
                         <Link to='/'><Button bsStyle="info">Home</Button></Link>
                         {/* <Button bsStyle="success">Add New User</Button> */}
                     </p>
+                    </AppTitle>
                 </Jumbotron>
                 <Image src="https://i.imgur.com/Km3kcgU.jpg" responsive />;
             </div>
